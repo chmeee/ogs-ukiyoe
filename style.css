@@ -64,6 +64,5 @@ html[data-theme="dark"] .about-markdown p:first-child strong {
   letter-spacing: .045em;
   opacity: .82;
   padding-top: .35rem;
-  border-top: 1px solid rgba(164,71,61,.2);
+  border-top: 1px solid rgba(164,71,61,.10);
 }
-
