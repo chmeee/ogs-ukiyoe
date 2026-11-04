@@ -206,25 +206,67 @@ html[data-theme="dark"] {
    Ukiyo-e — Game result colours
    ========================================= */
 
-/* Light theme */
-html[data-theme="light"] .GameHistoryTable td[class*="library-won-result"] {
-  color: #356b49 !important;
-  background-color: #e2efdf !important;
+/* LIGHT THEME */
+
+/* Win against a stronger opponent */
+html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-stronger {
+  color: #285d3c !important;
+  background-color: #cfe5d1 !important;
 }
 
-html[data-theme="light"] .GameHistoryTable td[class*="library-lost-result"] {
-  color: #914b4b !important;
-  background-color: #f3e1dc !important;
+/* Win against a weaker opponent */
+html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-weaker {
+  color: #477452 !important;
+  background-color: #e5efe2 !important;
 }
 
-/* Dark theme */
-html[data-theme="dark"] .GameHistoryTable td[class*="library-won-result"] {
-  color: #b9dfbd !important;
-  background-color: #304638 !important;
+/* Loss against a stronger opponent */
+html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-stronger {
+  color: #98584e !important;
+  background-color: #f2e7df !important;
 }
 
-html[data-theme="dark"] .GameHistoryTable td[class*="library-lost-result"] {
-  color: #efb9b0 !important;
-  background-color: #513633 !important;
+/* Loss against a weaker opponent */
+html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-weaker {
+  color: #853b39 !important;
+  background-color: #efd1cc !important;
 }
 
+/* Draw / annulled */
+html[data-theme="light"] .GameHistoryTable td.library-tie-result {
+  color: #69645b !important;
+  background-color: #e9e5dc !important;
+}
+
+
+/* DARK THEME */
+
+/* Win against a stronger opponent */
+html[data-theme="dark"] .GameHistoryTable td.library-won-result-vs-stronger {
+  color: #c5e8c9 !important;
+  background-color: #294b35 !important;
+}
+
+/* Win against a weaker opponent */
+html[data-theme="dark"] .GameHistoryTable td.library-won-result-vs-weaker {
+  color: #b6d1b7 !important;
+  background-color: #354639 !important;
+}
+
+/* Loss against a stronger opponent */
+html[data-theme="dark"] .GameHistoryTable td.library-lost-result-vs-stronger {
+  color: #e5bdb1 !important;
+  background-color: #493a34 !important;
+}
+
+/* Loss against a weaker opponent */
+html[data-theme="dark"] .GameHistoryTable td.library-lost-result-vs-weaker {
+  color: #f0b3aa !important;
+  background-color: #583632 !important;
+}
+
+/* Draw / annulled */
+html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
+  color: #d0c7b8 !important;
+  background-color: #45413a !important;
+}
