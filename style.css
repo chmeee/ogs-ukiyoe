@@ -142,63 +142,57 @@ html[data-theme="dark"] .avatar-container {
 
 
 /* =========================================
-   Ukiyo-e — Compact history tables
+   Ukiyo-e meets Tufte — History tables
    ========================================= */
 
 :root {
   --uk-table-head: #e8d9c2;
-  --uk-table-row: rgba(164, 71, 61, .055);
-  --uk-table-hover: rgba(164, 71, 61, .14);
-  --uk-table-line: rgba(110, 78, 58, .22);
+  --uk-table-hover: rgba(164, 71, 61, .07);
+  --uk-table-line: rgba(110, 78, 58, .18);
 }
 
 html[data-theme="dark"] {
   --uk-table-head: #40342f;
-  --uk-table-row: rgba(200, 121, 110, .065);
-  --uk-table-hover: rgba(200, 121, 110, .16);
-  --uk-table-line: rgba(220, 195, 155, .19);
+  --uk-table-hover: rgba(200, 121, 110, .09);
+  --uk-table-line: rgba(220, 195, 155, .16);
 }
 
 .GameHistoryTable,
 .review-history-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid var(--uk-table-line);
-  border-radius: 3px;
-  overflow: hidden;
+  border-collapse: collapse;
+  border: 0;
+  border-radius: 0;
 }
 
-/* Compact header */
+/* Header: compact, clear hierarchy */
 .GameHistoryTable thead th,
 .review-history-table thead th {
   background: var(--uk-table-head);
+  border: 0;
   border-bottom: 2px solid var(--uk-beni);
   padding: .35em .55em;
   line-height: 1.25;
 }
 
-/* Body */
+/* No zebra stripes, no vertical gridlines */
 .GameHistoryTable tbody td,
 .review-history-table tbody td {
-  padding: .4em .55em;
+  background: transparent !important;
+  border: 0;
   border-bottom: 1px solid var(--uk-table-line);
+  padding: .4em .55em;
 }
 
-/* Alternating rows */
-.GameHistoryTable tbody tr:nth-child(even),
-.review-history-table tbody tr:nth-child(even) {
-  background: var(--uk-table-row);
+/* Subtle interaction, not decoration */
+.GameHistoryTable tbody tr:hover,
+.review-history-table tbody tr:hover {
+  background: var(--uk-table-hover) !important;
 }
 
+/* No bottom border on final row */
 .GameHistoryTable tbody tr:last-child td,
 .review-history-table tbody tr:last-child td {
   border-bottom: 0;
-}
-
-/* Hover */
-.GameHistoryTable tbody tr:hover,
-.review-history-table tbody tr:hover {
-  background: var(--uk-table-hover);
 }
 
 /* Game names */
@@ -206,4 +200,3 @@ html[data-theme="dark"] {
 .review-history-table .game_name {
   font-weight: 500;
 }
-
