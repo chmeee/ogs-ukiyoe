@@ -1,136 +1,54 @@
 /*
- * OGS profile — quiet ukiyo-e / washi theme
- * Conservative styling: decorates the profile container and headings;
- * does not hide, reposition, resize, or disable OGS controls or statistics.
- *
- * If OGS changes its page structure, some selectors may need updating.
+ * OGS Ukiyo-e v2
+ * Minimal and conservative.
  */
 
 :root {
   --uk-washi: #f2ead8;
-  --uk-washi-light: #f8f3e8;
-  --uk-ink: #292c30;
-  --uk-indigo: #304b63;
-  --uk-indigo-soft: #62788a;
   --uk-beni: #a4473d;
-  --uk-gold: #a88a55;
-  --uk-line: rgba(65, 66, 62, 0.15);
 }
 
-/* Main profile content surface. Keep OGS layout dimensions untouched. */
 .container {
-  color: var(--uk-ink);
   background-color: var(--uk-washi) !important;
   background-image:
-    radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.62), transparent 42%),
-    radial-gradient(ellipse at 88% 92%, rgba(168,138,85,.08), transparent 38%),
+    radial-gradient(
+      ellipse at 12% 8%,
+      rgba(255,255,255,.55),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 88% 92%,
+      rgba(168,138,85,.07),
+      transparent 38%
+    ),
     repeating-linear-gradient(
       0deg,
       transparent 0,
       transparent 5px,
-      rgba(75,65,48,.018) 6px
+      rgba(75,65,48,.014) 6px
     ) !important;
-  border-top: 2px solid var(--uk-beni);
-  border-bottom: 1px solid rgba(48,75,99,.25);
-  box-shadow: 0 3px 16px rgba(35, 37, 38, .08);
-}
 
-/* Restrained typography: system serif fallbacks, no external font dependency. */
-.container h1,
-.container h2,
-.container h3 {
-  color: var(--uk-indigo) !important;
-  font-family: "Palatino Linotype", "Book Antiqua", "Yu Mincho",
-               "Hiragino Mincho ProN", "Noto Serif", Georgia, serif;
-  font-weight: 600;
-  letter-spacing: .025em;
-  text-shadow: 0 1px 0 rgba(255,255,255,.55);
+  border-top: 2px solid var(--uk-beni);
 }
 
 .container h2 {
-  border-bottom: 1px solid var(--uk-line);
-  padding-bottom: .28em;
+  border-bottom: 1px solid rgba(65,66,62,.15);
+  padding-bottom: .25em;
 }
 
-.container h2::after {
-  content: "";
-  display: block;
-  width: 2.4rem;
-  margin-top: .28em;
-  border-bottom: 2px solid var(--uk-beni);
-  opacity: .8;
-}
-
-.container a {
-  color: var(--uk-indigo) !important;
-  text-decoration-color: rgba(164,71,61,.45);
-  text-underline-offset: .16em;
-}
-
-.container a:hover {
-  color: var(--uk-beni) !important;
-}
-
-/* Avatar/name area: a quiet ink-and-paper frame. */
-.container .avatar-container {
-  border-color: rgba(48,75,99,.22);
-  border-radius: 3px;
-  background-color: rgba(248,243,232,.72);
-  background-image:
-    linear-gradient(90deg, transparent 49.5%, rgba(48,75,99,.045) 50%, transparent 50.5%),
-    linear-gradient(0deg, transparent 49.5%, rgba(48,75,99,.045) 50%, transparent 50.5%);
-}
-
-.container .avatar-container .Player-username {
-  color: var(--uk-ink) !important;
-  font-family: "Palatino Linotype", "Book Antiqua", "Yu Mincho",
-               "Hiragino Mincho ProN", "Noto Serif", Georgia, serif;
-  letter-spacing: .035em;
-}
-
-/* Subtle separators; no changes to chart geometry or interaction. */
-.container hr {
-  border: 0;
-  border-top: 1px solid var(--uk-line);
-}
-
-/* Keep OGS's native charts, tables, buttons, game history and stats intact.
-   This only gives ordinary table borders a softer paper-like appearance. */
-.container table {
-  border-color: var(--uk-line);
-}
-
-.container th {
-  color: var(--uk-indigo);
-}
-
-/* Respect reduced-motion preferences; this theme intentionally has no animation. */
-@media (prefers-reduced-motion: reduce) {
-  .container,
-  .container * {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Narrow screens: avoid fixed widths, clipping, or layout overrides. */
 @media (max-width: 600px) {
   .container {
     background-image:
-      radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.52), transparent 42%),
+      radial-gradient(
+        ellipse at 12% 8%,
+        rgba(255,255,255,.48),
+        transparent 42%
+      ),
       repeating-linear-gradient(
         0deg,
         transparent 0,
         transparent 5px,
-        rgba(75,65,48,.016) 6px
+        rgba(75,65,48,.012) 6px
       ) !important;
-    box-shadow: none;
-  }
-
-  .container h1,
-  .container h2,
-  .container h3 {
-    letter-spacing: .01em;
   }
 }
