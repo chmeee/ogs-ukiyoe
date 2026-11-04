@@ -1,14 +1,13 @@
-/*
- * OGS Ukiyo-e v2
- * Minimal and conservative.
- */
-
-:root {
+root {
   --uk-washi: #f2ead8;
   --uk-beni: #a4473d;
+  --uk-ink: #45413a;
+  --uk-paper-line: rgba(75, 65, 48, .014);
 }
 
-.container {
+/* Ukiyo-e: modo claro */
+html[data-theme="light"] .container,
+html:not([data-theme="dark"]) .container {
   background-color: var(--uk-washi) !important;
   background-image:
     radial-gradient(
@@ -25,119 +24,42 @@
       0deg,
       transparent 0,
       transparent 5px,
-      rgba(75,65,48,.014) 6px
+      var(--uk-paper-line) 6px
     ) !important;
+  border-top: 2px solid var(--uk-beni);
+}
 
+/* Ukiyo-e: modo oscuro */
+html[data-theme="dark"] {
+  --uk-washi: #292724;
+  --uk-beni: #c8796e;
+  --uk-ink: #e3d7c3;
+  --uk-paper-line: rgba(255,255,255,.018);
+}
+
+html[data-theme="dark"] .container {
+  background-color: var(--uk-washi) !important;
+  background-image:
+    radial-gradient(
+      ellipse at 12% 8%,
+      rgba(255,255,255,.035),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 88% 92%,
+      rgba(168,138,85,.045),
+      transparent 38%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 5px,
+      var(--uk-paper-line) 6px
+    ) !important;
   border-top: 2px solid var(--uk-beni);
 }
 
 .container h2 {
-  border-bottom: 1px solid rgba(65,66,62,.15);
+  border-bottom: 1px solid rgba(128, 112, 90, .3);
   padding-bottom: .25em;
-}
-
-@media (max-width: 600px) {
-  .container {
-    background-image:
-      radial-gradient(
-        ellipse at 12% 8%,
-        rgba(255,255,255,.48),
-        transparent 42%
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent 0,
-        transparent 5px,
-        rgba(75,65,48,.012) 6px
-      ) !important;
-  }
-}
-/* =========================================
-   UKIYO-E — ABOUT CARD
-   ========================================= */
-
-.about-container {
-    position: relative;
-    overflow: hidden;
-    background-color: #f5eddd !important;
-    border: 1px solid #d5c5a7;
-    border-radius: 3px;
-    box-shadow: 2px 3px 8px rgba(48, 42, 31, .12);
-}
-
-.about-container .about-markdown > div {
-    position: relative;
-    padding: 22px 26px;
-    background-image:
-      repeating-linear-gradient(
-        135deg,
-        transparent 0,
-        transparent 8px,
-        rgba(48, 75, 99, .025) 9px,
-        transparent 10px
-      );
-}
-
-/* Ensō */
-.about-container .about-markdown > div::after {
-    content: "";
-    position: absolute;
-    width: 92px;
-    height: 92px;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%) rotate(-15deg);
-    border: 3px solid rgba(48, 75, 99, .24);
-    border-right-color: transparent;
-    border-bottom-color: rgba(48, 75, 99, .12);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-/* Main content */
-.about-container .about-markdown > div > div {
-    position: relative;
-    z-index: 1;
-    max-width: 78%;
-}
-
-.about-container p {
-    margin: 7px 0;
-    color: #34332e;
-    line-height: 1.65;
-}
-
-.about-container p:first-child {
-    color: #304b63;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.15em;
-}
-
-/* Red hanko stamp */
-.about-container p:last-child {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 3px 9px;
-    border: 1px solid #a4473d;
-    color: #a4473d;
-    font-family: Georgia, serif;
-    letter-spacing: .04em;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .about-container .about-markdown > div {
-        padding: 17px;
-    }
-
-    .about-container .about-markdown > div::after {
-        width: 55px;
-        height: 55px;
-        right: 12px;
-        opacity: .6;
-    }
-
-    .about-container .about-markdown > div > div {
-        max-width: 85%;
-    }
 }
