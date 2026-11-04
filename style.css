@@ -52,3 +52,92 @@
       ) !important;
   }
 }
+/* =========================================
+   UKIYO-E — ABOUT CARD
+   ========================================= */
+
+.about-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #f5eddd !important;
+    border: 1px solid #d5c5a7;
+    border-radius: 3px;
+    box-shadow: 2px 3px 8px rgba(48, 42, 31, .12);
+}
+
+.about-container .about-markdown > div {
+    position: relative;
+    padding: 22px 26px;
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        transparent 0,
+        transparent 8px,
+        rgba(48, 75, 99, .025) 9px,
+        transparent 10px
+      );
+}
+
+/* Ensō */
+.about-container .about-markdown > div::after {
+    content: "";
+    position: absolute;
+    width: 92px;
+    height: 92px;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    border: 3px solid rgba(48, 75, 99, .24);
+    border-right-color: transparent;
+    border-bottom-color: rgba(48, 75, 99, .12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Main content */
+.about-container .about-markdown > div > div {
+    position: relative;
+    z-index: 1;
+    max-width: 78%;
+}
+
+.about-container p {
+    margin: 7px 0;
+    color: #34332e;
+    line-height: 1.65;
+}
+
+.about-container p:first-child {
+    color: #304b63;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15em;
+}
+
+/* Red hanko stamp */
+.about-container p:last-child {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 9px;
+    border: 1px solid #a4473d;
+    color: #a4473d;
+    font-family: Georgia, serif;
+    letter-spacing: .04em;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .about-container .about-markdown > div {
+        padding: 17px;
+    }
+
+    .about-container .about-markdown > div::after {
+        width: 55px;
+        height: 55px;
+        right: 12px;
+        opacity: .6;
+    }
+
+    .about-container .about-markdown > div > div {
+        max-width: 85%;
+    }
+}
