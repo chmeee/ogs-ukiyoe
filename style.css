@@ -200,3 +200,31 @@ html[data-theme="dark"] {
 .review-history-table .game_name {
   font-weight: 500;
 }
+
+
+/* =========================================
+   Ukiyo-e — Game result colours
+   ========================================= */
+
+/* Light theme */
+html[data-theme="light"] .GameHistoryTable td[class*="library-won-result"] {
+  color: #356b49 !important;
+  background-color: #e2efdf !important;
+}
+
+html[data-theme="light"] .GameHistoryTable td[class*="library-lost-result"] {
+  color: #914b4b !important;
+  background-color: #f3e1dc !important;
+}
+
+/* Dark theme */
+html[data-theme="dark"] .GameHistoryTable td[class*="library-won-result"] {
+  color: #b9dfbd !important;
+  background-color: #304638 !important;
+}
+
+html[data-theme="dark"] .GameHistoryTable td[class*="library-lost-result"] {
+  color: #efb9b0 !important;
+  background-color: #513633 !important;
+}
+
