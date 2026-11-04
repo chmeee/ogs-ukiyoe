@@ -141,3 +141,71 @@ html[data-theme="dark"] .avatar-container {
   overflow-wrap: anywhere;
 }
 
+
+/* =========================================
+   Ukiyo-e — Game and review history tables
+   ========================================= */
+
+:root {
+  --uk-table-head: rgba(164, 71, 61, .09);
+  --uk-table-row: rgba(168, 138, 85, .045);
+  --uk-table-hover: rgba(164, 71, 61, .10);
+  --uk-table-line: rgba(90, 75, 55, .16);
+}
+
+html[data-theme="dark"] {
+  --uk-table-head: rgba(200, 121, 110, .13);
+  --uk-table-row: rgba(220, 195, 155, .025);
+  --uk-table-hover: rgba(200, 121, 110, .12);
+  --uk-table-line: rgba(220, 195, 155, .13);
+}
+
+/* Shared table styling */
+.GameHistoryTable,
+.review-history-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--uk-table-line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Column headings */
+.GameHistoryTable thead th,
+.review-history-table thead th {
+  background: var(--uk-table-head);
+  border-bottom: 2px solid var(--uk-table-line);
+  padding-top: .65em;
+  padding-bottom: .65em;
+}
+
+/* Rows */
+.GameHistoryTable tbody td,
+.review-history-table tbody td {
+  border-bottom: 1px solid var(--uk-table-line);
+  transition: background-color .15s ease;
+}
+
+/* Subtle alternating paper */
+.GameHistoryTable tbody tr:nth-child(even),
+.review-history-table tbody tr:nth-child(even) {
+  background: var(--uk-table-row);
+}
+
+/* Last row */
+.GameHistoryTable tbody tr:last-child td,
+.review-history-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Hover */
+.GameHistoryTable tbody tr:hover,
+.review-history-table tbody tr:hover {
+  background: var(--uk-table-hover);
+}
+
+/* Game names */
+.GameHistoryTable .game_name,
+.review-history-table .game_name {
+  font-weight: 500;
+}
