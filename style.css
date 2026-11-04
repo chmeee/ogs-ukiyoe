@@ -203,70 +203,80 @@ html[data-theme="dark"] {
 
 
 /* =========================================
-   Ukiyo-e — Game result colours
+   Ukiyo-e — Stronger game result distinction
    ========================================= */
 
 /* LIGHT THEME */
 
-/* Win against a stronger opponent */
+/* Win against stronger */
 html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-stronger {
-  color: #285d3c !important;
-  background-color: #cfe5d1 !important;
+  color: #174c2b !important;
+  background: #b8dfbd !important;
+  border-left: 4px solid #26723e !important;
 }
 
-/* Win against a weaker opponent */
+/* Win against weaker */
 html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-weaker {
-  color: #477452 !important;
-  background-color: #e5efe2 !important;
+  color: #356442 !important;
+  background: #e4f0df !important;
+  border-left: 4px solid #8bad8b !important;
 }
 
-/* Loss against a stronger opponent */
+/* Loss against stronger */
 html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-stronger {
-  color: #98584e !important;
-  background-color: #f2e7df !important;
+  color: #914b40 !important;
+  background: #f5e4dc !important;
+  border-left: 4px solid #c78b7d !important;
 }
 
-/* Loss against a weaker opponent */
+/* Loss against weaker */
 html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-weaker {
-  color: #853b39 !important;
-  background-color: #efd1cc !important;
+  color: #762321 !important;
+  background: #edc2bd !important;
+  border-left: 4px solid #a83232 !important;
 }
 
 /* Draw / annulled */
 html[data-theme="light"] .GameHistoryTable td.library-tie-result {
-  color: #69645b !important;
-  background-color: #e9e5dc !important;
+  color: #514b42 !important;
+  background: #e5e0d5 !important;
+  border-left: 4px solid #999083 !important;
 }
 
 
 /* DARK THEME */
 
-/* Win against a stronger opponent */
+/* Win against stronger */
 html[data-theme="dark"] .GameHistoryTable td.library-won-result-vs-stronger {
-  color: #c5e8c9 !important;
-  background-color: #294b35 !important;
+  color: #d5f5d8 !important;
+  background: #285b38 !important;
+  border-left: 4px solid #73bd83 !important;
 }
 
-/* Win against a weaker opponent */
+/* Win against weaker */
 html[data-theme="dark"] .GameHistoryTable td.library-won-result-vs-weaker {
-  color: #b6d1b7 !important;
-  background-color: #354639 !important;
+  color: #c0d9c2 !important;
+  background: #354b39 !important;
+  border-left: 4px solid #648d69 !important;
 }
 
-/* Loss against a stronger opponent */
+/* Loss against stronger */
 html[data-theme="dark"] .GameHistoryTable td.library-lost-result-vs-stronger {
-  color: #e5bdb1 !important;
-  background-color: #493a34 !important;
+  color: #f0c9bc !important;
+  background: #503b35 !important;
+  border-left: 4px solid #b98272 !important;
 }
 
-/* Loss against a weaker opponent */
+/* Loss against weaker */
 html[data-theme="dark"] .GameHistoryTable td.library-lost-result-vs-weaker {
-  color: #f0b3aa !important;
-  background-color: #583632 !important;
+  color: #ffe0dc !important;
+  background: #713a36 !important;
+  border-left: 4px solid #e07870 !important;
 }
 
 /* Draw / annulled */
 html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
-  color: #d0c7b8 !important;
-  background-color: #45413a !important;
+  color: #ded5c5 !important;
+  background: #45413a !important;
+  border-left: 4px solid #a49a87 !important;
 }
