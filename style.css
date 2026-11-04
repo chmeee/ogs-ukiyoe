@@ -1,65 +1,69 @@
-root {
-  --uk-washi: #f2ead8;
-  --uk-beni: #a4473d;
-  --uk-ink: #45413a;
-  --uk-paper-line: rgba(75, 65, 48, .014);
-}
 
-/* Ukiyo-e: modo claro */
-html[data-theme="light"] .container,
-html:not([data-theme="dark"]) .container {
-  background-color: var(--uk-washi) !important;
-  background-image:
-    radial-gradient(
-      ellipse at 12% 8%,
-      rgba(255,255,255,.55),
-      transparent 42%
+/* =========================================
+   Ukiyo-e — About card
+   ========================================= */
+
+/* Light theme */
+html[data-theme="light"] .about-container,
+html:not([data-theme="dark"]) .about-container {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.42),
+      transparent 65%
     ),
-    radial-gradient(
-      ellipse at 88% 92%,
-      rgba(168,138,85,.07),
-      transparent 38%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent 5px,
-      var(--uk-paper-line) 6px
-    ) !important;
-  border-top: 2px solid var(--uk-beni);
+    #eee4d0;
+  border: 1px solid rgba(164,71,61,.35);
+  border-left: 3px solid #a4473d;
+  border-radius: 3px;
+  padding: 1.1rem 1.25rem;
 }
 
-/* Ukiyo-e: modo oscuro */
-html[data-theme="dark"] {
-  --uk-washi: #292724;
-  --uk-beni: #c8796e;
-  --uk-ink: #e3d7c3;
-  --uk-paper-line: rgba(255,255,255,.018);
-}
-
-html[data-theme="dark"] .container {
-  background-color: var(--uk-washi) !important;
-  background-image:
-    radial-gradient(
-      ellipse at 12% 8%,
+/* Dark theme */
+html[data-theme="dark"] .about-container {
+  background:
+    linear-gradient(
+      135deg,
       rgba(255,255,255,.035),
-      transparent 42%
+      transparent 65%
     ),
-    radial-gradient(
-      ellipse at 88% 92%,
-      rgba(168,138,85,.045),
-      transparent 38%
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent 5px,
-      var(--uk-paper-line) 6px
-    ) !important;
-  border-top: 2px solid var(--uk-beni);
+    #302c28;
+  border: 1px solid rgba(200,121,110,.28);
+  border-left: 3px solid #c8796e;
+  border-radius: 3px;
+  padding: 1.1rem 1.25rem;
 }
 
-.container h2 {
-  border-bottom: 1px solid rgba(128, 112, 90, .3);
-  padding-bottom: .25em;
+/* Inner text */
+.about-markdown > div > div {
+  font-family: Georgia, "Noto Serif", serif;
+  line-height: 1.7;
 }
+
+.about-markdown p {
+  margin: .45rem 0;
+}
+
+/* Welcome */
+.about-markdown p:first-child {
+  font-size: 1.12em;
+  letter-spacing: .035em;
+}
+
+.about-markdown p:first-child strong {
+  color: #a4473d;
+}
+
+html[data-theme="dark"] .about-markdown p:first-child strong {
+  color: #d58a7e;
+}
+
+/* Closing Japanese phrase */
+.about-markdown p:last-child {
+  font-size: .92em;
+  letter-spacing: .045em;
+  opacity: .82;
+  padding-top: .35rem;
+  border-top: 1px solid rgba(164,71,61,.2);
+}
+
