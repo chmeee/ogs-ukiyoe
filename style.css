@@ -280,3 +280,19 @@ html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
   background: #45413a !important;
   border-left: 4px solid #a49a87 !important;
 }
+
+
+/* Compact result column */
+.GameHistoryTable td[class*="library-won-result"],
+.GameHistoryTable td[class*="library-lost-result"],
+.GameHistoryTable td.library-tie-result {
+  font-size: .85em;
+  line-height: 1.3;
+  padding: .3em .4em .3em .5em !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  max-width: 11rem;
+  box-sizing: border-box;
+}
+
