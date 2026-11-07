@@ -281,18 +281,23 @@ html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
   border-left: 4px solid #a49a87 !important;
 }
 
-
-/* Compact result column */
-.GameHistoryTable td[class*="library-won-result"],
-.GameHistoryTable td[class*="library-lost-result"],
-.GameHistoryTable td.library-tie-result {
-  font-size: .85em;
-  line-height: 1.3;
-  padding: .3em .4em .3em .5em !important;
-  white-space: normal !important;
-  overflow-wrap: anywhere;
-  min-width: 0;
-  max-width: 11rem;
+/* Dar espacio real a la columna de resultados */
+.GameHistoryTable th:last-child,
+.GameHistoryTable td:last-child {
+  width: 10rem;
+  min-width: 10rem;
+  max-width: 10rem;
   box-sizing: border-box;
 }
 
+/* El resultado debe partirse por palabras, no por caracteres */
+.GameHistoryTable td[class*="library-won-result"],
+.GameHistoryTable td[class*="library-lost-result"],
+.GameHistoryTable td.library-tie-result {
+  font-size: .82em;
+  line-height: 1.3;
+  padding: .35em .45em .35em .5em !important;
+  white-space: normal !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
