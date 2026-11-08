@@ -1019,3 +1019,55 @@ html[data-theme="dark"]  .User { --uk-sheen: rgba(255, 255, 255, .035); }
 :root .User .Card h4:first-child {
   margin-top: 0;
 }
+
+
+/* =========================================================
+   Ukiyo-e — Gráficas de rating
+   Afecta al historial de rating y al de "por partida" (mismo
+   código en OGS). Los colores de victoria/derrota, la línea y el
+   área ya vienen de las variables definidas más arriba.
+   ========================================================= */
+
+/* Etiqueta de fecha al pasar el ratón: de píldora gris a "sello" bermellón.
+   (Antes mi regla de color de texto de los ejes también se aplicaba aquí
+   y dejaba la fecha casi ilegible; este bloque lo corrige.) */
+.User :is(.RatingsChart, .RatingsChartByGame) .chart .date-legend-background {
+  fill: var(--uk-beni);
+  rx: 2px;
+}
+
+.User :is(.RatingsChart, .RatingsChartByGame) .chart .date-legend-text {
+  fill: var(--colored-background-fg);
+}
+
+/* Línea de rating algo más suave */
+.User :is(.RatingsChart, .RatingsChartByGame) .chart .rating.line {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+/* Cruz de seguimiento discreta y punteada */
+.User :is(.RatingsChart, .RatingsChartByGame) .chart .crosshairs {
+  stroke: var(--uk-beni-soft);
+  stroke-dasharray: 3 3;
+}
+
+/* Leyenda de victorias/derrotas: cuadrados pequeños y sobrios */
+.User .RatingsChart .win-loss-stats {
+  font-variant-numeric: tabular-nums;
+}
+
+.User .RatingsChart .win-loss-legend-block {
+  width: .85em;
+  height: .85em;
+  border: 0;
+  border-radius: 1px;
+  vertical-align: -.05em;
+}
+
+/* Estados de carga y sin datos, como "No active games" */
+.User :is(.RatingsChart, .RatingsChartByGame) :is(.loading, .nodata) {
+  color: var(--shade1);
+  font-family: var(--uk-serif);
+  font-style: italic;
+}
