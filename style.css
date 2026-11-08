@@ -203,83 +203,70 @@ html[data-theme="dark"] {
 
 
 /* =========================================
-   Ukiyo-e — Stronger game result distinction
+   Ukiyo-e — Resultados de partidas
+   Matiz = resultado: índigo (victoria) / bermellón (derrota).
+   Intensidad = lo informativo del resultado:
+   fuerte = victoria ante mayor rango o derrota ante menor rango.
+   Las variables solo existen en los temas claro y oscuro, así que
+   el tema "accesible" de OGS conserva sus colores originales.
    ========================================= */
 
-/* LIGHT THEME */
-
-/* Win against stronger */
-html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-stronger {
-  color: #174c2b !important;
-  background: #b8dfbd !important;
-  border-left: 4px solid #26723e !important;
+html[data-theme="light"] {
+  --uk-win-hi-fg:  #1f3350;  --uk-win-hi-bg:  #b7c7dc;  --uk-win-hi-line:  #2a3f5f;
+  --uk-win-lo-fg:  #3a4d68;  --uk-win-lo-bg:  #e1e8f1;  --uk-win-lo-line:  #8fa3bf;
+  --uk-loss-hi-fg: #6b1f18;  --uk-loss-hi-bg: #ebbbb0;  --uk-loss-hi-line: #a4473d;
+  --uk-loss-lo-fg: #85402f;  --uk-loss-lo-bg: #f8e8e0;  --uk-loss-lo-line: #cf9a89;
+  --uk-draw-fg:    #3f3a33;  --uk-draw-bg:    #d8d5cc;  --uk-draw-line:    #999083;
 }
 
-/* Win against weaker */
-html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-weaker {
-  color: #356442 !important;
-  background: #e4f0df !important;
-  border-left: 4px solid #8bad8b !important;
+html[data-theme="dark"] {
+  --uk-win-hi-fg:  #e3edff;  --uk-win-hi-bg:  #2a4a7c;  --uk-win-hi-line:  #86a8dc;
+  --uk-win-lo-fg:  #bccade;  --uk-win-lo-bg:  #2e3a4e;  --uk-win-lo-line:  #627ea8;
+  --uk-loss-hi-fg: #ffe0dc;  --uk-loss-hi-bg: #7a332b;  --uk-loss-hi-line: #e07870;
+  --uk-loss-lo-fg: #e4c6bc;  --uk-loss-lo-bg: #4a3a38;  --uk-loss-lo-line: #b98272;
+  --uk-draw-fg:    #d6d0c2;  --uk-draw-bg:    #2c2c29;  --uk-draw-line:    #a49a87;
 }
 
-/* Loss against stronger */
-html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-stronger {
-  color: #914b40 !important;
-  background: #f5e4dc !important;
-  border-left: 4px solid #c78b7d !important;
-}
-
-/* Loss against weaker */
-html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-weaker {
-  color: #762321 !important;
-  background: #edc2bd !important;
-  border-left: 4px solid #a83232 !important;
-}
-
-/* Draw / annulled */
-html[data-theme="light"] .GameHistoryTable td.library-tie-result {
-  color: #514b42 !important;
-  background: #e5e0d5 !important;
-  border-left: 4px solid #999083 !important;
-}
-
-
-/* DARK THEME */
-
-/* Win against stronger */
+/* Victoria ante mayor rango (la más notable) */
+html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-stronger,
 html[data-theme="dark"] .GameHistoryTable td.library-won-result-vs-stronger {
-  color: #d5f5d8 !important;
-  background: #285b38 !important;
-  border-left: 4px solid #73bd83 !important;
+  color: var(--uk-win-hi-fg) !important;
+  background: var(--uk-win-hi-bg) !important;
+  border-left: 4px solid var(--uk-win-hi-line) !important;
 }
 
-/* Win against weaker */
+/* Victoria ante menor rango */
+html[data-theme="light"] .GameHistoryTable td.library-won-result-vs-weaker,
 html[data-theme="dark"] .GameHistoryTable td.library-won-result-vs-weaker {
-  color: #c0d9c2 !important;
-  background: #354b39 !important;
-  border-left: 4px solid #648d69 !important;
+  color: var(--uk-win-lo-fg) !important;
+  background: var(--uk-win-lo-bg) !important;
+  border-left: 4px solid var(--uk-win-lo-line) !important;
 }
 
-/* Loss against stronger */
+/* Derrota ante mayor rango (la más llevadera) */
+html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-stronger,
 html[data-theme="dark"] .GameHistoryTable td.library-lost-result-vs-stronger {
-  color: #f0c9bc !important;
-  background: #503b35 !important;
-  border-left: 4px solid #b98272 !important;
+  color: var(--uk-loss-lo-fg) !important;
+  background: var(--uk-loss-lo-bg) !important;
+  border-left: 4px solid var(--uk-loss-lo-line) !important;
 }
 
-/* Loss against weaker */
+/* Derrota ante menor rango (la más notable) */
+html[data-theme="light"] .GameHistoryTable td.library-lost-result-vs-weaker,
 html[data-theme="dark"] .GameHistoryTable td.library-lost-result-vs-weaker {
-  color: #ffe0dc !important;
-  background: #713a36 !important;
-  border-left: 4px solid #e07870 !important;
+  color: var(--uk-loss-hi-fg) !important;
+  background: var(--uk-loss-hi-bg) !important;
+  border-left: 4px solid var(--uk-loss-hi-line) !important;
 }
 
-/* Draw / annulled */
+/* Empate / anulada */
+html[data-theme="light"] .GameHistoryTable td.library-tie-result,
 html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
-  color: #ded5c5 !important;
-  background: #45413a !important;
-  border-left: 4px solid #a49a87 !important;
+  color: var(--uk-draw-fg) !important;
+  background: var(--uk-draw-bg) !important;
+  border-left: 4px solid var(--uk-draw-line) !important;
 }
+
 
 /* El resultado debe partirse por palabras, no por caracteres */
 .GameHistoryTable td[class*="library-won-result"],
@@ -631,4 +618,143 @@ html[data-theme="dark"] {
   .review-history-table tbody tr {
     transition: background-color .15s ease;
   }
+}
+
+
+/* =========================================================
+   Ukiyo-e — Tema del perfil (variables propias de OGS)
+   Todo va acotado a .User, así que solo afecta a la página de
+   perfil. OGS pinta cards, bordes, enlaces, botones primarios y
+   gráficos con variables; al redefinirlas aquí, el resto del
+   perfil adopta la paleta sin tocar cada componente.
+   En el tema "accesible" no se aplica nada (igual que antes).
+   ========================================================= */
+
+html[data-theme="light"] .User {
+  /* Superficies y bordes cálidos */
+  --card-background-color: #f6f0e3;
+  --shade0: #4a4238;
+  --shade1: #6b6054;
+  --shade2: #a39787;
+  --shade3: #d9cfbd;
+  --shade4: #ebe3d3;
+  --shade5: #f5efe3;
+  /* Acento: índigo */
+  --link-color: #3b5b8c;
+  --link-color-active: #2a3f5f;
+  --primary: #2a3f5f;
+  /* Gráfico de rating */
+  --chart-line: #2a3f5f;
+  --chart-area: #dde5f0;
+}
+
+html[data-theme="dark"] .User {
+  --card-background-color: #2a2724;
+  --shade0: #cfc6b8;
+  --shade1: #a09584;
+  --shade2: #75695b;
+  --shade3: #54493f;
+  --shade4: #3b342d;
+  --shade5: #2a2622;
+  --link-color: #8fb0e0;
+  --link-color-active: #b4c9ea;
+  --primary: #86a8dc;
+  --chart-line: #86a8dc;
+  --chart-area: #22314a;
+}
+
+/* Victoria / derrota con la misma paleta que la tabla de partidas:
+   leyenda y barras del gráfico, barra de victorias/derrotas, iconos.
+   (En OGS "strong" = rival más fuerte, "weak" = rival más débil.) */
+html[data-theme="light"] .User,
+html[data-theme="dark"] .User {
+  --strong-win:  var(--uk-win-hi-line);
+  --weak-win:    var(--uk-win-lo-line);
+  --strong-loss: var(--uk-loss-lo-line);
+  --weak-loss:   var(--uk-loss-hi-line);
+  --win:         var(--uk-win-hi-line);
+  --loss:        var(--uk-loss-hi-line);
+}
+
+/* Partidas sin rating: el resultado se pinta con el color del texto,
+   así que usamos el tono fuerte de cada lado para que se lea */
+.User .GameHistoryTable .library-won-result-unranked  { color: var(--uk-win-hi-line); }
+.User .GameHistoryTable .library-lost-result-unranked { color: var(--uk-loss-hi-line); }
+
+.User i.won  { color: var(--uk-win-hi-line); }
+.User i.loss { color: var(--uk-loss-hi-line); }
+
+
+/* ---------- Gráficos: colores que OGS fija a mano ---------- */
+.User .RatingsChart .area,
+.User .RatingsChartByGame .area {
+  stroke: var(--chart-line);
+}
+
+.User .RatingsChart .chart text,
+.User .RatingsChart .y.axis .tick text,
+.User .RatingsChartByGame .chart text,
+.User .RatingsChartByGame .y.axis .tick text {
+  fill: var(--shade1);
+}
+
+.User .RatingsChart .data-point-circle,
+.User .RatingsChartByGame .data-point-circle {
+  fill: var(--uk-beni);
+  stroke: var(--uk-beni);
+}
+
+
+/* ---------- Cards laterales: planas, con la misma lógica de filete ---------- */
+.User .Card {
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+/* La card que envuelve la tarjeta "about" desaparece: ya tiene la suya */
+.User .Card:has(> .about-container) {
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+}
+
+.User .Card > h3 {
+  position: relative;
+  margin-bottom: .6rem;
+  padding-bottom: .4em;
+  border-bottom: 1px solid var(--shade3);
+  font-family: var(--uk-serif);
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+.User .Card > h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--uk-beni);
+}
+
+.User h2 {
+  font-family: var(--uk-serif);
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+
+/* ---------- Botones ---------- */
+.User button,
+.User a.btn,
+.User .btn {
+  border-radius: 2px;
+}
+
+.User button:focus-visible,
+.User a.btn:focus-visible,
+.User .btn:focus-visible {
+  outline: 2px solid var(--uk-beni);
+  outline-offset: 2px;
 }
