@@ -309,3 +309,118 @@ html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
   min-width: 8rem;
   max-width: 8rem;
 }
+
+
+/* =========================================
+   UKIYO-E · PLAYER RATINGS
+   ========================================= */
+
+:root {
+  --uk-rating-bg: rgba(232, 217, 194, .48);
+  --uk-rating-head: #e8d9c2;
+  --uk-rating-line: rgba(110, 78, 58, .20);
+  --uk-rating-active: rgba(164, 71, 61, .10);
+  --uk-rating-muted: #817568;
+}
+
+html[data-theme="dark"] {
+  --uk-rating-bg: rgba(64, 52, 47, .55);
+  --uk-rating-head: #40342f;
+  --uk-rating-line: rgba(220, 195, 155, .18);
+  --uk-rating-active: rgba(200, 121, 110, .16);
+  --uk-rating-muted: #b5a594;
+}
+
+/* Contenedor */
+.ratings-container {
+  border-top: 2px solid var(--uk-beni);
+  padding-top: .5em;
+}
+
+/* Título */
+.ratings-container .ratings-title {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  letter-spacing: .04em;
+  padding-bottom: .4em;
+  border-bottom: 1px solid var(--uk-rating-line);
+}
+
+/* Cuadrícula */
+.ratings-grid {
+  gap: 0;
+  border: 0;
+}
+
+/* Encabezados */
+.ratings-grid .title-row {
+  background: var(--uk-rating-head);
+  border-bottom: 2px solid var(--uk-beni);
+}
+
+.ratings-grid .title-row .title {
+  color: var(--uk-rating-muted);
+  padding: .45em .25em;
+  font-size: .85em;
+}
+
+/* Filas */
+.ratings-grid .speed {
+  border-bottom: 1px solid var(--uk-rating-line);
+  background: transparent;
+}
+
+.ratings-grid .speed:last-child {
+  border-bottom: 0;
+}
+
+.ratings-grid .speed > .title {
+  color: var(--uk-rating-muted);
+  font-size: .88em;
+  font-weight: 600;
+  padding: .55em .4em;
+}
+
+/* Celdas */
+.ratings-grid .cell {
+  padding: .35em .2em;
+  text-align: center;
+}
+
+.ratings-grid .rating-entry {
+  border-radius: 2px;
+  padding: .2em .15em;
+  background: transparent;
+}
+
+/* Cifra principal */
+.ratings-grid .rating {
+  font-family: Georgia, serif;
+  font-size: .96em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ratings-grid .rating .left {
+  font-weight: 600;
+}
+
+/* Rating seleccionado */
+.ratings-grid .rating-entry.active {
+  background: var(--uk-rating-active);
+  box-shadow: inset 2px 0 var(--uk-beni);
+}
+
+/* Ratings sin datos suficientes */
+.ratings-grid .rating-entry.unset {
+  opacity: .55;
+}
+
+/* Distribución */
+.ratings-container .toggle-container {
+  border-top: 1px solid var(--uk-rating-line);
+  padding: .45em .2em;
+  color: var(--uk-rating-muted);
+  font-size: .85em;
+}
+
