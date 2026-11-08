@@ -281,15 +281,6 @@ html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
   border-left: 4px solid #a49a87 !important;
 }
 
-/* Dar espacio real a la columna de resultados */
-.GameHistoryTable th:last-child,
-.GameHistoryTable td:last-child {
-  width: 10rem;
-  min-width: 10rem;
-  max-width: 10rem;
-  box-sizing: border-box;
-}
-
 /* El resultado debe partirse por palabras, no por caracteres */
 .GameHistoryTable td[class*="library-won-result"],
 .GameHistoryTable td[class*="library-lost-result"],
@@ -300,4 +291,21 @@ html[data-theme="dark"] .GameHistoryTable td.library-tie-result {
   white-space: normal !important;
   overflow-wrap: break-word;
   word-break: normal;
+}
+
+/* Compactar las columnas de la tabla */
+.GameHistoryTable thead th,
+.GameHistoryTable tbody td {
+  padding-left: .25em !important;
+  padding-right: .25em !important;
+}
+
+/* La columna de resultados necesita aprovechar cada píxel */
+.GameHistoryTable th:last-child,
+.GameHistoryTable td:last-child {
+  padding-left: .2em !important;
+  padding-right: .2em !important;
+  width: 8rem;
+  min-width: 8rem;
+  max-width: 8rem;
 }
