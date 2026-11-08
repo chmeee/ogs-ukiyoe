@@ -424,3 +424,67 @@ html[data-theme="dark"] {
   font-size: .85em;
 }
 
+
+/* Ratings: segunda iteración */
+
+.ratings-container {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ratings-container .ratings-title {
+  font-size: 1.5em;
+  margin-bottom: .55em;
+}
+
+/* Cabecera */
+.ratings-grid .title-row {
+  border-radius: 3px 3px 0 0;
+}
+
+.ratings-grid .title-row .title {
+  padding: .55em .2em;
+}
+
+/* Filas más compactas */
+.ratings-grid .speed {
+  min-height: 0;
+}
+
+.ratings-grid .speed > .title,
+.ratings-grid .cell {
+  padding-top: .4em;
+  padding-bottom: .4em;
+}
+
+/* Valores */
+.ratings-grid .rating {
+  font-size: 1.02em;
+  letter-spacing: -.025em;
+}
+
+.ratings-grid .rating .left {
+  font-weight: 700;
+}
+
+/* Selección activa: quitar el azul de OGS */
+.ratings-grid .rating-entry.active {
+  background: var(--uk-rating-active) !important;
+  border: 1px solid var(--uk-beni) !important;
+  border-radius: 3px;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
+/* Evitar que la selección azul afecte a los descendientes */
+.ratings-grid .rating-entry.active * {
+  color: inherit;
+}
+
+/* Distribución */
+.ratings-container .toggle-container {
+  text-align: right;
+  letter-spacing: .01em;
+}
+
