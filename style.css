@@ -550,6 +550,7 @@ html[data-theme="dark"] {
 /* ---------- Detalle: sello hanko (碁) en el panel del avatar ---------- */
 .avatar-container {
   position: relative;
+  --uk-seal: 2.2rem;                     /* tamaño del sello (antes 1.6rem) */
 }
 
 .avatar-container::after {
@@ -557,11 +558,11 @@ html[data-theme="dark"] {
   position: absolute;
   top: .5rem;
   right: .5rem;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: var(--uk-seal);
+  height: var(--uk-seal);
   display: grid;
   place-items: center;
-  font: 700 .95rem/1 var(--uk-serif);
+  font: 700 calc(var(--uk-seal) * .6)/1 var(--uk-serif);
   color: var(--uk-paper);
   background: var(--uk-beni);
   border-radius: 2px;
@@ -1070,4 +1071,26 @@ html[data-theme="dark"]  .User { --uk-sheen: rgba(255, 255, 255, .035); }
   color: var(--shade1);
   font-family: var(--uk-serif);
   font-style: italic;
+}
+
+
+/* =========================================================
+   Ukiyo-e — Nombre de usuario y rango (sobre el avatar)
+   El nombre pasa de 1.5rem a 2.1rem; el rango escala con él
+   (en OGS es una fracción del nombre). El relleno lateral es
+   simétrico para que el nombre siga centrado sin pisar el sello;
+   si el nombre es muy largo, se recorta con "…".
+   ========================================================= */
+
+:root .User .avatar-container > .username {
+  padding: 0 calc(var(--uk-seal, 2.2rem) - .5rem);
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin-bottom: .8rem;
+}
+
+:root .User .avatar-container > .username .Player-rank {
+  font-size: .78em;                      /* OGS: .7em */
+  font-weight: 600;
+  letter-spacing: .02em;
 }
