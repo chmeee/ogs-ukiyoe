@@ -803,3 +803,111 @@ html[data-theme="dark"] .User {
     mask-composite: intersect;
   }
 }
+
+
+/* =========================================================
+   Ukiyo-e — Partidas activas y abandonadas
+   OGS las muestra de dos formas según cuántas haya (ajuste
+   "game-list-threshold"): tabla-lista o miniaturas. Las dos pintan
+   sus estados con las mismas variables --miniboard-*, así que al
+   redefinirlas aquí quedan cubiertos ambos modos.
+   Significado: to-move = te toca mover a ti (quien mira el perfil);
+   viewed-to-move = le toca mover al dueño del perfil.
+   ========================================================= */
+
+html[data-theme="light"] .User {
+  --miniboard-to-move: #f6e0d8;                  /* tu turno: toque bermellón */
+  --miniboard-to-move-border: #c9897b;
+  --miniboard-viewed-to-move: #efe8d8;           /* turno del otro: papel, tranquilo */
+  --miniboard-viewed-to-move-border: #d9cfbd;
+  --miniboard-stone-removal: #f5e7bf;            /* retirada de piedras: ocre */
+  --miniboard-stone-removal-border: #b89a4f;
+  --miniboard-stone-removal-hover: #fbf3d9;
+  --miniboard-stone-removal-hover-border: #b8a876;
+  --miniboard-hover: #dde5f0;                    /* hover: lavado índigo */
+  --miniboard-hover-border: #8fa3bf;
+}
+
+html[data-theme="dark"] .User {
+  --miniboard-to-move: #4a3330;
+  --miniboard-to-move-border: #241513;
+  --miniboard-viewed-to-move: #2f2b27;
+  --miniboard-viewed-to-move-border: #4a433b;
+  --miniboard-stone-removal: #53421a;
+  --miniboard-stone-removal-border: #231b08;
+  --miniboard-stone-removal-hover: #241c0a;
+  --miniboard-stone-removal-hover-border: #0c0902;
+  --miniboard-hover: #33445f;
+  --miniboard-hover-border: #1c2638;
+}
+
+/* Cabeceras de sección, como las cards laterales */
+.User .active-games,
+.User .dropped-games,
+.User .no-active-games {
+  margin: .5rem;
+}
+
+.User .active-games-header {
+  position: relative;
+  margin-bottom: .6rem;
+  padding-bottom: .4em;
+  border-bottom: 1px solid var(--shade3);
+  font-family: var(--uk-serif);
+  font-size: 1.17em;
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+.User .active-games-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--uk-beni);
+}
+
+.User .no-active-games {
+  color: var(--shade1);
+  font-family: var(--uk-serif);
+  font-style: italic;
+}
+
+/* Modo lista: misma lógica que las tablas de historial (Tufte) */
+.User .GobanLineSummaryContainerHeader > div {
+  padding-top: .35em;
+  padding-bottom: .35em;
+  background: var(--uk-table-head);
+  border-bottom: 2px solid var(--uk-beni);
+  font-family: var(--uk-serif);
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+.User .GobanLineSummary > div {
+  padding-top: .3em;
+  padding-bottom: .3em;
+  border-bottom: 1px solid var(--uk-table-line);
+}
+
+.User .GobanLineSummary:last-child > div {
+  border-bottom: 0;
+}
+
+.User .GobanLineSummary .move-number,
+.User .GobanLineSummary .clock,
+.User .GobanLineSummary .opponent-clock,
+.User .GobanLineSummary .size {
+  font-variant-numeric: tabular-nums;
+}
+
+.User .GobanLineSummary .clock.paused {
+  color: var(--shade1);                  /* en vez del #888 fijo de OGS */
+}
+
+/* Modo miniaturas */
+.User .GameList .MiniGoban {
+  border-radius: 3px;
+}
