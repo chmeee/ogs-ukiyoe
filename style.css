@@ -573,22 +573,6 @@ html[data-theme="dark"] {
 .avatar-container > .username { padding-right: 1.4rem; } */
 
 
-/* ---------- Detalle: filete bermellón bajo "Ratings" ---------- */
-.ratings-container .ratings-title {
-  position: relative;
-}
-
-.ratings-container .ratings-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;                          /* se apoya sobre el border-bottom existente */
-  width: 2.5rem;
-  height: 2px;
-  background: var(--uk-beni);
-}
-
-
 /* ---------- Pequeñas coherencias ---------- */
 .about-container ::selection,
 .avatar-container ::selection,
@@ -705,46 +689,6 @@ html[data-theme="dark"] .User {
 }
 
 
-/* ---------- Cards laterales: planas, con la misma lógica de filete ---------- */
-.User .Card {
-  border-radius: 3px;
-  box-shadow: none;
-}
-
-/* La card que envuelve la tarjeta "about" desaparece: ya tiene la suya */
-.User .Card:has(> .about-container) {
-  background: transparent;
-  border-color: transparent;
-  padding: 0;
-}
-
-.User .Card > h3 {
-  position: relative;
-  margin-bottom: .6rem;
-  padding-bottom: .4em;
-  border-bottom: 1px solid var(--shade3);
-  font-family: var(--uk-serif);
-  font-weight: 500;
-  letter-spacing: .04em;
-}
-
-.User .Card > h3::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 2.5rem;
-  height: 2px;
-  background: var(--uk-beni);
-}
-
-.User h2 {
-  font-family: var(--uk-serif);
-  font-weight: 500;
-  letter-spacing: .04em;
-}
-
-
 /* ---------- Botones ---------- */
 .User button,
 .User a.btn,
@@ -841,34 +785,6 @@ html[data-theme="dark"] .User {
   --miniboard-hover-border: #1c2638;
 }
 
-/* Cabeceras de sección, como las cards laterales */
-.User .active-games,
-.User .dropped-games,
-.User .no-active-games {
-  margin: .5rem;
-}
-
-.User .active-games-header {
-  position: relative;
-  margin-bottom: .6rem;
-  padding-bottom: .4em;
-  border-bottom: 1px solid var(--shade3);
-  font-family: var(--uk-serif);
-  font-size: 1.17em;
-  font-weight: 500;
-  letter-spacing: .04em;
-}
-
-.User .active-games-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 2.5rem;
-  height: 2px;
-  background: var(--uk-beni);
-}
-
 .User .no-active-games {
   color: var(--shade1);
   font-family: var(--uk-serif);
@@ -951,4 +867,155 @@ html[data-theme="dark"] .User {
 .User .active-games,
 .User .dropped-games {
   min-width: 0;
+}
+
+
+/* =========================================================
+   Ukiyo-e — Sistema de secciones y títulos
+   Un único diseño para todo el perfil:
+   · MARCO de sección: papel + borde fino + barra bermellón a la
+     izquierda (el de la tarjeta "about"). Lo usan avatar, ratings,
+     about, todas las cards de OGS y las partidas activas/abandonadas.
+   · TÍTULO de sección: serif, filete gris y trazo corto bermellón.
+     Lo usan Ratings, Active/Dropped Games, Achievements, Trophies,
+     Activity, Game History, Reviews and Demos…
+   · SUBTÍTULO (h4 dentro de cards): serif seminegrita, sin filete.
+   Se ajusta con las variables de abajo.
+   ========================================================= */
+
+html[data-theme="light"] .User { --uk-sheen: rgba(255, 255, 255, .42); }
+html[data-theme="dark"]  .User { --uk-sheen: rgba(255, 255, 255, .035); }
+
+.User {
+  --uk-title-size: 1.25em;
+  --uk-frame-bg:
+    linear-gradient(135deg, var(--uk-sheen, transparent), transparent 65%),
+    var(--card-background-color);
+}
+
+
+/* ---------- Marco de sección ---------- */
+:root .User .Card,
+:root .User .avatar-container,
+:root .User .about-container,
+:root .User .ratings-container,
+:root .User .active-games,
+:root .User .dropped-games {
+  background: var(--uk-frame-bg);
+  border: 1px solid var(--uk-beni-soft);
+  border-left: 3px solid var(--uk-beni);
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+/* La card de OGS que envuelve "about" desaparece: ya tiene su marco */
+:root .User .Card:has(> .about-container) {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+:root .User .ratings-container {
+  padding: 1rem;
+}
+
+:root .User .active-games,
+:root .User .dropped-games {
+  margin: .5rem;
+  padding: .5rem;
+}
+
+.User .no-active-games {
+  margin: .5rem;
+}
+
+
+/* ---------- Título de sección ---------- */
+:root .User h2,
+:root .User .Card h3,
+:root .User .ratings-title,
+:root .User .active-games-header,
+:root .User .dropped-games-header {
+  position: relative;
+  margin: 0 0 .6rem;
+  padding: 0 0 .4em;
+  border: 0;
+  border-bottom: 1px solid var(--shade3);
+  font-family: var(--uk-serif);
+  font-size: var(--uk-title-size);
+  font-weight: 500;
+  letter-spacing: .04em;
+  line-height: 1.25;
+}
+
+:root .User h2::after,
+:root .User .Card h3::after,
+:root .User .ratings-title::after,
+:root .User .active-games-header::after,
+:root .User .dropped-games-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--uk-beni);
+}
+
+/* "Dropped Games": el h2 interior no repite el título; el chevrón va a la derecha */
+:root .User .dropped-games-header h2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+:root .User .dropped-games-header h2::after {
+  content: none;
+}
+
+.User .dropped-games-header i {
+  margin-left: auto;
+  font-size: 1.2em;
+}
+
+/* Títulos que OGS pone justo ENCIMA de una card (Game History, Reviews,
+   Activity…): título y card se funden en un solo marco */
+:root .User h2:has(+ .Card) {
+  margin: .5rem .5rem 0;
+  padding: .5rem .5rem .4em;
+  background:
+    linear-gradient(var(--shade3), var(--shade3)) no-repeat .5rem 100% / calc(100% - 1rem) 1px,
+    var(--uk-frame-bg);
+  border: 1px solid var(--uk-beni-soft);
+  border-left: 3px solid var(--uk-beni);
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+:root .User h2:has(+ .Card)::after {
+  left: .5rem;
+  bottom: 0;
+}
+
+:root .User h2 + .Card {
+  margin-top: 0;
+  border-top: 0;
+  border-radius: 0 0 3px 3px;
+}
+
+
+/* ---------- Subtítulo ---------- */
+:root .User .Card h4 {
+  margin: .9rem 0 .3rem;
+  color: var(--shade0);
+  font-family: var(--uk-serif);
+  font-size: 1.02em;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+:root .User .Card h4:first-child {
+  margin-top: 0;
 }
