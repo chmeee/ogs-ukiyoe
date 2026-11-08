@@ -877,19 +877,31 @@ html[data-theme="dark"] .User {
 
 /* Modo lista: misma lógica que las tablas de historial (Tufte) */
 .User .GobanLineSummaryContainerHeader > div {
-  padding-top: .35em;
-  padding-bottom: .35em;
+  padding: .35em .4rem;
   background: var(--uk-table-head);
   border-bottom: 2px solid var(--uk-beni);
   font-family: var(--uk-serif);
+  font-size: .88em;                      /* Georgia es más ancha que la fuente de OGS */
   font-weight: 600;
-  letter-spacing: .03em;
+  line-height: 1.2;
+  vertical-align: bottom;
+}
+
+/* OGS fuerza una sola línea en las cabeceras; "Opponent's Clock" era la
+   que ensanchaba la tabla. Permitimos que se parta en dos líneas. */
+.User .GameList .GobanLineSummaryContainerHeader > div {
+  white-space: normal;
 }
 
 .User .GobanLineSummary > div {
-  padding-top: .3em;
-  padding-bottom: .3em;
+  padding: .3em .4rem;                   /* OGS usa .5rem a los lados */
   border-bottom: 1px solid var(--uk-table-line);
+}
+
+/* Nombre de partida y rival: algo más cortos (se truncan con "…") */
+.User .GobanLineSummary .game-name,
+.User .GobanLineSummary .player {
+  max-width: 11em;
 }
 
 .User .GobanLineSummary:last-child > div {
