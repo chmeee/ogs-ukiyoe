@@ -515,7 +515,7 @@ html[data-theme="dark"] {
 .review-history-table thead th {
   font-family: var(--uk-serif);
   font-weight: 600;
-  letter-spacing: .03em;
+  font-size: .92em;                      /* Georgia es más ancha que la fuente de OGS */
 }
 
 
@@ -910,4 +910,33 @@ html[data-theme="dark"] .User {
 /* Modo miniaturas */
 .User .GameList .MiniGoban {
   border-radius: 3px;
+}
+
+
+/* =========================================================
+   Ajuste de anchos: que las tablas no se salgan de su marco
+   La tabla de historial tiene nueve columnas con topes de ancho
+   (nombre 15rem, rival 12rem, resultado 8rem) que a veces suman
+   más que la columna. Se recortan un poco los dos topes más
+   holgados (se trunca con "…") para dejar margen.
+   Si aún se sale, baja más estos valores; si sobra espacio, súbelos.
+   ========================================================= */
+
+.User .GameHistoryTable .game_name {
+  max-width: 12rem;
+}
+
+.User .GameHistoryTable .player {
+  max-width: 11rem;
+}
+
+/* La lista de partidas activas de OGS permite hasta 100dvw de ancho:
+   aquí debe respetar su columna y, si no cabe, desplazarse dentro */
+.User .GameList {
+  max-width: 100%;
+}
+
+.User .active-games,
+.User .dropped-games {
+  min-width: 0;
 }
